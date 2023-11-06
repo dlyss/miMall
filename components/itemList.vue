@@ -1,6 +1,5 @@
 <template>
 	<view class="list">
-		<view class="ListTitle">{{listTitle}}</view>
 		<u-grid :border="false" col="4">
 			<u-grid-item v-for="(item,index) in itemList" :key="index">
 				<view class="item">
@@ -15,9 +14,8 @@
 
 <script setup>
 	let {
-		listTitle,
 		itemList
-	} = defineProps(['listTitle', 'itemList'])
+	} = defineProps([ 'itemList'])
 </script>
 
 
