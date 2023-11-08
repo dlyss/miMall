@@ -1,51 +1,25 @@
 <template>
 	<view class="list">
-		<u-grid :border="false" col="4">
+		<u-grid :border="false" col="3">
 			<u-grid-item v-for="(item,index) in itemList" :key="index">
-				<view class="item">
-					<image :src="item.image_url" mode="aspectFit"></image>
-					<view class="itemTitle">{{item.title}}</view>
-					<view class="itemPrice">1000</view>
-				</view>
+				<item :cateName="cateName" :item="item"></item>
 			</u-grid-item>
 		</u-grid>
 	</view>
 </template>
 
 <script setup>
+	import item from './item.vue'
 	let {
-		itemList
-	} = defineProps([ 'itemList'])
+		itemList,
+		cateName
+	} = defineProps(['itemList','cateName'])
+
 </script>
 
 
 <style lang="scss">
-	.item {
-		border: 1px solid #eee;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		image {
-			width: 80%;
-			height: 150rpx;
-			padding: 5px 5px;
-		}
-        height: 100%;
-		margin: 5px 0;
-	}
 
-	.itemTitle {
-		width: 90%;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow:ellipsis;
-		text-align: center;
-	}
 
-	.ListTitle {
-		font-weight: bold;
-		font-size: 18px;
-		padding: 5px 10px;
-	}
+
 </style>

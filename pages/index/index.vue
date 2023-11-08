@@ -3,13 +3,13 @@
 	<u-swiper height="200" :list="apiImgLs"></u-swiper>
 	<!-- top list-->
 	<view class="ListTitle">太空文章</view>
-	<itemList :itemList="itemLsTop"></itemList>
+	<itemList cateName="articles" :itemList="itemLsTop"></itemList>
 	<!-- middle list-->
 	<view class="ListTitle">太空博客</view>
-	<itemList :itemList="itemLsMiddle"></itemList>
+	<itemList cateName="blogs" :itemList="itemLsMiddle"></itemList>
 	<!-- middle list-->
 	<view class="ListTitle">太空信息</view>
-	<itemList :itemList="itemLsBottom"></itemList>
+	<itemList cateName="reports" :itemList="itemLsBottom"></itemList>
 </template>
 
 <script setup>
@@ -64,5 +64,9 @@
 
 <style lang="scss">
 
-
+	.ListTitle {
+		font-weight: bold;
+		font-size: 18px;
+		padding: 5px 10px;
+	}
 </style>

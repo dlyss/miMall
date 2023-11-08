@@ -1,28 +1,48 @@
 <!-- 列表中具体展示块 -->
 <template>
-	<view class="item">
-		<image :src="item.image_url"></image>
-		<view class="itemTitle" length="20">{{item.title}}</view>
-		<view class="itemPrice">1000</view>
+	<view class="item" @click="goDetail(cateName,item.id)">
+		<image :src="item.image_url" mode="aspectFit"></image>
+		<view class="itemTitle">{{item.title}}</view>
+		<view class="itemPrice">{{item.id}}</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		props:{
-			itemList:[],
-		},
-		name:"item",
-		data() {
-			return {
-				
-			};
-		}
+<script setup>
+	let {
+		item,
+		cateName
+	} = defineProps(['item','cateName'])
+	
+	let goDetail = (cateName,id) => {
+
+		uni.navigateTo({
+			url:'/pages/detail/detail?cateName='+cateName+'&id='+id
+		})
 	}
 </script>
 
-<style>
-.itemTop{
-	
-}
+<style lang="scss">
+	.item {
+		border: 1px solid #eee;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		image {
+			width: 80%;
+			height: 150rpx;
+			padding: 5px 5px;
+		}
+
+		height: 100%;
+		margin: 5px 0;
+	}
+	.itemTitle {
+		width: 90%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: center;
+	}
 </style>
