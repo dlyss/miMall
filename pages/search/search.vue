@@ -8,8 +8,8 @@
 			</view>
 		</scroll-view>
 		<view class="right">
-			<itemList :itemList="rightList.value"></itemList>
-			<pagination :totalItems="20" :itemsPerPage="10" :initialPage="1"></pagination>
+			<itemList :cateName="cateName" :itemList="rightList.value"></itemList>
+			<pagination  :totalItems="20" :itemsPerPage="10" :initialPage="1"></pagination>
 		</view>
 
 	</view>
@@ -34,7 +34,7 @@
 	//分类高亮索引
 	let activeIndex = ref(0)
 	let cateList = ref([])
-
+    let cateName = ref()
 	//模拟从远程取得的分类信息
 	let loadCateList = () => {
 		//cate info
@@ -66,13 +66,15 @@
 	let rightList = ref([])
 	let loadRightList = async (categoryItem, limit, list, index) => {
 		activeIndex.value = index;
+		cateName = categoryItem.eName
+		console.log(cateName)
 		let {
 			results
 		} = await uni.$get(indexItemLsTopUrl + categoryItem.eName, {
 			limit: limit,
 		})
 		list.value = results
-		console.log(rightList.value)
+	//	console.log(rightList.value)
 	}
 	onMounted(() => {
 		{

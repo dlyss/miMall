@@ -45,6 +45,14 @@
 				"navigationBarTitleText" : "",
 				"enablePullDownRefresh" : false
 			}
+		},
+		{
+			"path" : "pages/user/test",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
 	"globalStyle": {
@@ -88,7 +96,8 @@
 			{
 				"pagePath": "pages/user/user",
 				"text": "我的",
-				"iconPath": "static/profile.png"
+				"iconPath": "static/profile.png",
+				"selectedIconPath": "static/profile_s.png"
 			}
 		]
 	}

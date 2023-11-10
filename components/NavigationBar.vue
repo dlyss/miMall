@@ -2,14 +2,17 @@
 	<view class="headSpace"></view>
 	<view class="box">
 		<image src="../static/1.png" alt="logo" />
-		<u-search  placeholder="请输入搜索内容" v-model="keyword" :showAction="false" bgColor="#fff"></u-search>
+		<u-search  placeholder="请输入搜索内容" v-model="searchStore.searchText" :showAction="false" bgColor="#fff"></u-search>
 	</view>
 </template>
 
 <script setup>
 import {ref} from "vue"
 //search keyword
-let keyword = ref('');
+//let searchText = ref('');
+//pinia
+import { useSearchStore } from '../store/searchStore.js'
+let searchStore = useSearchStore()
 </script>
 
 <style scoped lang="scss">
