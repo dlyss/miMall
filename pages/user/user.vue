@@ -8,17 +8,17 @@
 			<view class="loginBoxTitle">登录</view>
 			<view class="loginBoxText">
 				<view>账号：</view>
-				<u-input placeholder="请输入账号" border="none" clearable></u-input>
+				<u-input placeholder="请输入账号" border="none" v-model="loginData.loginName" clearable></u-input>
 			</view>
 			<view class="loginBoxText">
 				<view>密码：</view>
-				<u-input placeholder="请输入密码" border="none" clearable></u-input>
+				<u-input placeholder="请输入密码" border="none" v-model="loginData.loginPw"  clearable></u-input>
 			</view>
 			<view>
 
 			</view>
 			<view class="loginBoxBtns">
-				<view class="loginBtn">登录</view>
+				<view class="loginBtn" @click="loginUser">登录</view>
 				<view class="loginRegBtn" @click="showType=2">注册</view>
 			</view>
 		</view>
@@ -53,8 +53,12 @@
 	//返回功能
 	let cancelBack=()=>{
 		showType.value=1
+		loginData.value={
+			loginName:'',
+			loginPw:''
+		}
 		regData.value={
-			regName:'',
+			regData:'',
 			regPw:''
 		}
 	}
@@ -81,8 +85,26 @@
 		return
 	}
 	//登录功能
+	let loginData = ref({
+		loginName:'',
+		loginPw:''
+	})
 	let loginUser = ()=>{
-		
+		if(!regData.value.loginName){
+			uni.showToast({
+				title:'请输入账号'
+			})
+		}
+		if(!regData.value.loginPw){
+			uni.showToast({
+				title:'请输入密码'
+			})
+			return
+		}
+		uni.showToast({
+			title:'登录中'
+		})
+		return
 	}
 </script>
 
