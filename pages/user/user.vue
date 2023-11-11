@@ -26,17 +26,17 @@
 			<view class="loginBoxTitle">注册</view>
 			<view class="loginBoxText">
 				<view>账号：</view>
-				<u-input placeholder="请输入账号" border="none" clearable></u-input>
+				<u-input placeholder="请输入账号" border="none" v-model="regData.regName" clearable></u-input>
 			</view>
 			<view class="loginBoxText">
 				<view>密码：</view>
-				<u-input placeholder="请输入密码" border="none" clearable></u-input>
+				<u-input type="password" placeholder="请输入密码" border="none" v-model="regData.regPw" clearable></u-input>
 			</view>
 			<view>
-		
 			</view>
 			<view class="loginBoxBtns">
-				<view class="loginRegBtn">注册</view>
+				<view class="loginBtn" @click="regUser">注册</view>
+				<view class="loginRegBtn" @click="cancelBack">返回</view>
 			</view>
 		</view>
 	</view>
@@ -50,6 +50,40 @@
 	import NavigationBar from '../../components/NavigationBar.vue'
 	//showType:o->登录按钮 1->登录界面 2->注册
 	let showType = ref(0)
+	//返回功能
+	let cancelBack=()=>{
+		showType.value=1
+		regData.value={
+			regName:'',
+			regPw:''
+		}
+	}
+	//注册功能
+	let regData = ref({
+		regName:'',
+		regPw:''
+	})
+	let regUser=()=>{
+		if(!regData.value.regName){
+			uni.showToast({
+				title:'请输入账号'
+			})
+		}
+		if(!regData.value.regPw){
+			uni.showToast({
+				title:'请输入密码'
+			})
+			return
+		}
+		uni.showToast({
+			title:'注册中'
+		})
+		return
+	}
+	//登录功能
+	let loginUser = ()=>{
+		
+	}
 </script>
 
 <style scoped lang="scss">
@@ -82,7 +116,6 @@
 			width: 100%;
 			height: 200px;
 			margin-left: 10px;
-
 			.loginBoxTitle {
 				color: black;
 				text-align: center;
