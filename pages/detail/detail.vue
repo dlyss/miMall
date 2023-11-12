@@ -12,7 +12,7 @@
 			</view>
 		</view>
 		<view class="detailBtn">
-			<view class="addCart">加入购物车</view>
+			<view class="addCart" @click="addCart(itemDetail)">加入购物车</view>
 			<view class="detailStar">喜欢</view>
 		</view>
      <view class="detailArrow">
@@ -37,7 +37,8 @@
 		indexSwiperApiUrl,
 		indexItemLsTopUrl
 	} from '../../config/requestUrlConfig.js'
-	
+	//pinia
+	import { cartInfoStore } from '../../store/cartInfoStore.js'
 	let itemDetail=ref({})
 	let getItemDetail = async (cateName, id, itemDetail) => {
 		let ret = await uni.$get(indexItemLsTopUrl + cateName + '/' + id)
@@ -60,9 +61,21 @@
 	onMounted(() => {
 	getApiImg()
 	})
+	//back to last page
 	let goLastPage=()=>{
 		uni.navigateBack()
 	}
+	//add cart
+	let cartInfo = cartInfoStore()
+	let addCart=(item)=>{
+		//console.log(item)
+		cartInfo.addCart({title:item.title,imgUrl:item.image_url,id:item.id})
+		console.log(cartInfo.cartInfo)
+		uni.showToast({
+			title:"添加成功"
+		})
+	}
+
 </script>
 
 <style scoped lang="scss">
