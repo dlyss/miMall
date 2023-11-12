@@ -2,8 +2,10 @@
 	<view class="userPage">
 		<NavigationBar></NavigationBar>
 		<view class="loginContainer" v-if="showType===0">
-			<view class="loginBtn" @click="showType=1">登录</view>
+			 <view class="loginUser" @click="logoutUser" v-if="userInfo.userInfo.userName">{{userInfo.userInfo.userName}}</view>
+			<view class="loginBtn" @click="showType=1" v-else >登录</view>
 		</view>
+
 		<view class="loginBox" v-if="showType===1">
 			<view class="loginBoxTitle">登录</view>
 			<view class="loginBoxText">
@@ -48,7 +50,10 @@
 	} from 'vue'
 	//顶部导航
 	import NavigationBar from '../../components/NavigationBar.vue'
-	//showType:o->登录按钮 1->登录界面 2->注册
+	//pinia
+	import { userInfoStore } from '../../store/userInfoStore.js'
+	let userInfo = userInfoStore()
+	//showType:o->登录按钮 1->登录界面 2->注册 3 ->userInfo
 	let showType = ref(0)
 	//返回功能
 	let cancelBack=()=>{
@@ -82,6 +87,9 @@
 		uni.showToast({
 			title:'注册中'
 		})
+		//返回显示当前登录用户信息
+		showType.value=0
+		userInfo.userInfo.userName=regData.value.regName
 		return
 	}
 	//登录功能
@@ -90,12 +98,12 @@
 		loginPw:''
 	})
 	let loginUser = ()=>{
-		if(!regData.value.loginName){
+		if(!loginData.value.loginName){
 			uni.showToast({
 				title:'请输入账号'
 			})
 		}
-		if(!regData.value.loginPw){
+		if(!loginData.value.loginPw){
 			uni.showToast({
 				title:'请输入密码'
 			})
@@ -104,8 +112,27 @@
 		uni.showToast({
 			title:'登录中'
 		})
+		//返回显示当前登录用户信息
+		showType.value=0
+		userInfo.userInfo.userName=loginData.value.loginName
 		return
 	}
+   //退出
+   let logoutUser=()=>{
+	   uni.showModal({
+	   	title:"提示",
+		content:"是否要退出？",
+		success:({confirm})=>{
+			if(confirm){
+				userInfo.$reset()
+				loginData.value={
+					userName:'',
+					userPw:''
+				}
+			}
+		}
+	   })
+   }
 </script>
 
 <style scoped lang="scss">
@@ -121,7 +148,9 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
+            .loginUser{
+				color: #ff6700;
+			}
 			.loginBtn {
 				background-color: #646566;
 				color: white;
