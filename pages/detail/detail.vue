@@ -69,8 +69,13 @@
 	let cartInfo = cartInfoStore()
 	let addCart=(item)=>{
 		//console.log(item)
-		cartInfo.addCart({title:item.title,imgUrl:item.image_url,id:item.id})
-		console.log(cartInfo.cartInfo)
+		cartInfo.addCart(
+		{
+			title:item.title,
+			imgUrl:item.image_url,
+			id:item.id,
+			summary:item.summary})
+		//console.log(cartInfo.cartInfo)
 		uni.showToast({
 			title:"添加成功"
 		})
