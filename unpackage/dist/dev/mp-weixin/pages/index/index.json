@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "u-swiper": "../../uni_modules/uview-plus/components/u-swiper/u-swiper",
+    "navigation-bar": "../../components/NavigationBar",
+    "item-list": "../../components/itemList"
+  }
+}

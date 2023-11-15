@@ -1,0 +1,18 @@
+
+.pagination.data-v-155c7b3d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.pagination button.data-v-155c7b3d {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+.pagination button.data-v-155c7b3d:disabled {
+  background-color: #ccc;
+}

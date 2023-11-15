@@ -1,0 +1,1 @@
+<view class="list"><u-grid wx:if="{{b}}" u-s="{{['d']}}" u-i="e6dd6a3c-0" bind:__l="__l" u-p="{{b}}"><u-grid-item wx:for="{{a}}" wx:for-item="item" wx:key="c" u-s="{{['d']}}" u-i="{{item.d}}" bind:__l="__l"><item wx:if="{{item.b}}" u-i="{{item.a}}" bind:__l="__l" u-p="{{item.b}}"></item></u-grid-item></u-grid></view>

@@ -1,0 +1,1 @@
+<view class="item" bindtap="{{d}}"><image src="{{a}}" mode="aspectFit"></image><view class="itemTitle">{{b}}</view><view class="itemPrice">{{c}}</view></view>

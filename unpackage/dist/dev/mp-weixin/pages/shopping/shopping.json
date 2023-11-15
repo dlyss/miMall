@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-checkbox": "../../uni_modules/uview-plus/components/u-checkbox/u-checkbox",
+    "u-checkbox-group": "../../uni_modules/uview-plus/components/u-checkbox-group/u-checkbox-group",
+    "navigation-bar": "../../components/NavigationBar",
+    "cart-list": "../../components/cartItem"
+  }
+}

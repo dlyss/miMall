@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigation-bar": "../../components/NavigationBar",
+    "item-list": "../../components/itemList",
+    "pagination": "../../components/pagination"
+  }
+}

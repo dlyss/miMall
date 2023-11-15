@@ -1,0 +1,1 @@
+<view class="pagination data-v-155c7b3d"><button class="data-v-155c7b3d" bindtap="{{a}}" disabled="{{b}}">上一页</button><label class="data-v-155c7b3d">第 {{c}} 页，共 {{d}} 页</label><button class="data-v-155c7b3d" bindtap="{{e}}" disabled="{{f}}">下一页</button></view>

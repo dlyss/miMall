@@ -1,0 +1,1 @@
+<view class="headSpace data-v-e29e7744"></view><view class="box data-v-e29e7744"><image class="data-v-e29e7744" src="/static/1.png" alt="logo"/><u-search wx:if="{{b}}" class="data-v-e29e7744" u-i="e29e7744-0" bind:__l="__l" bindupdateModelValue="{{a}}" u-p="{{b}}"></u-search></view>
