@@ -17,7 +17,7 @@
 					<view class="itemPrice">{{item.id}}</view>
 
 					<view class="itemCount">
-						<u-number-box buttonSize="18" :disabled="true" v-model="value"
+						<u-number-box buttonSize="18" :disabled="true" v-model="item.count"
 							@change="valChange"></u-number-box>
 					</view>
 				</view>

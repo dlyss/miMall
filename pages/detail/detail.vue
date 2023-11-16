@@ -42,7 +42,6 @@
 	let itemDetail=ref({})
 	let getItemDetail = async (cateName, id, itemDetail) => {
 		let ret = await uni.$get(indexItemLsTopUrl + cateName + '/' + id)
-		console.log(ret)
 		itemDetail.value = ret
 	}
 	onLoad(({		cateName,
@@ -68,14 +67,24 @@
 	//add cart
 	let cartInfo = cartInfoStore()
 	let addCart=(item)=>{
-		//console.log(item)
-		cartInfo.addCart(
-		{
-			title:item.title,
-			imgUrl:item.image_url,
-			id:item.id,
-			summary:item.summary})
-		//console.log(cartInfo.cartInfo)
+		let ifHasSameItem = cartInfo.getCart(item.id)
+		console.log("has"+ifHasSameItem)
+		if(ifHasSameItem){
+			ifHasSameItem.count++
+			cartInfo.updateCart(ifHasSameItem)
+			console.log("update")
+		}else{
+			//console.log(item)
+			cartInfo.addCart(
+			{
+				title:item.title,
+				imgUrl:item.image_url,
+				id:item.id,
+				summary:item.summary,
+				count:1})
+		}
+
+		console.log(cartInfo.cartInfo)
 		uni.showToast({
 			title:"添加成功"
 		})
