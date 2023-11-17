@@ -68,11 +68,10 @@
 	let cartInfo = cartInfoStore()
 	let addCart=(item)=>{
 		let ifHasSameItem = cartInfo.getCart(item.id)
-		console.log("has"+ifHasSameItem)
+		//console.log("has"+ifHasSameItem)
 		if(ifHasSameItem){
 			ifHasSameItem.count++
 			cartInfo.updateCart(ifHasSameItem)
-			console.log("update")
 		}else{
 			//console.log(item)
 			cartInfo.addCart(
@@ -84,7 +83,7 @@
 				count:1})
 		}
 
-		console.log(cartInfo.cartInfo)
+	//	console.log(cartInfo.cartInfo)
 		uni.showToast({
 			title:"添加成功"
 		})
